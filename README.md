@@ -1,7 +1,7 @@
 # API_DJANGO
 
 ## INSTALL
-pip install django
+pip install django  
 pip install djangorestframework
 ## RUN THE APP
 ```bash 
