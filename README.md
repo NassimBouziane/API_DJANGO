@@ -35,6 +35,7 @@ psql -U postgres -d omaj_products -f dump.sql
 ```
 PS: THIS IS FOR POSTGRES DATABASES
 # REST API
+# REST API
 ### Products
 
 ```python
@@ -43,6 +44,7 @@ GET /api/products/
 
 # Create a new product
 POST /api/products/create/
+Header: Authorization token
 Request Body: JSON object representing the product details
 EXEMPLE : 
 {
@@ -61,11 +63,13 @@ GET /api/products/<int:pk>/
 
 # Update details of a specific product
 PUT /api/products/<int:pk>/update/
+Header: Authorization token
 Request Body: JSON object representing the updated product details
 
 
 # Delete a specific product
 DELETE /api/products/<int:pk>/delete/
+Header: Authorization token
 ```
 
 ### Categories
@@ -75,6 +79,7 @@ GET /categories/
 
 # Create a new category
 POST /categories/create/
+Header: Authorization token
 Request Body: JSON object representing the category details
 EXEMPLE : {
     "name":"Test"
@@ -85,11 +90,12 @@ GET /categories/<int:pk>/
 
 # Update details of a specific category
 PUT /categories/<int:pk>/update/
+Header: Authorization token
 Request Body: JSON object representing the updated category details
 
 # Delete a specific category
 DELETE /categories/<int:pk>/delete/
-
+Header: Authorization token
 
 ```
 

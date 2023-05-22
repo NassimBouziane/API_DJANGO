@@ -1,0 +1,316 @@
+{
+	"info": {
+		"_postman_id": "d70df4d0-1261-4d78-80e2-6972d3473ba2",
+		"name": "OMAJ_Products",
+		"description": "# REST API\n### Products\n\n```python\n# Retrieve a list of all products\nGET /api/products/\n\n# Create a new product\nPOST /api/products/create/\nHeader: Authorization token\nRequest Body: JSON object representing the product details\nEXEMPLE : \n{\n  \"name\": \"Test\",\n  \"category\": 4,\n  \"brand\": \"Test\",\n  \"size\": 45,\n  \"price\":10,\n  \"quantity\": 1,\n  \"status\": \"Accepté\"\n}\n\n\n# Retrieve details of a specific product\nGET /api/products/<int:pk>/\n\n# Update details of a specific product\nPUT /api/products/<int:pk>/update/\nHeader: Authorization token\nRequest Body: JSON object representing the updated product details\n\n\n# Delete a specific product\nDELETE /api/products/<int:pk>/delete/\nHeader: Authorization token\n```\n\n### Categories\n```python\n# Retrieve a list of all categories\nGET /categories/\n\n# Create a new category\nPOST /categories/create/\nHeader: Authorization token\nRequest Body: JSON object representing the category details\nEXEMPLE : {\n    \"name\":\"Test\"\n    }\n\n# Retrieve details of a specific category\nGET /categories/<int:pk>/\n\n# Update details of a specific category\nPUT /categories/<int:pk>/update/\nHeader: Authorization token\nRequest Body: JSON object representing the updated category details\n\n# Delete a specific category\nDELETE /categories/<int:pk>/delete/\nHeader: Authorization token\n\n```\n\n\n### FILTERED PRODUCTS\n```python \nGET /products/filter/?PARAMS=\nparams can be :\n- name\n- brand\n- category\n- size\n- quantity\n- status\n\n```",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/products/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/products/ID/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"ID",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create product",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "auth",
+								"value": "test",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Test\",\r\n  \"category\": 26,\r\n  \"brand\": \"Test\",\r\n  \"size\": 45,\r\n  \"price\":10,\r\n  \"quantity\": 1,\r\n  \"status\": \"Accepté\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/products/create/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"create",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update by ID",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "auth",
+								"value": "test",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Test\",\r\n  \"category\": 26,\r\n  \"brand\": \"Test\",\r\n  \"size\": 45,\r\n  \"price\":10,\r\n  \"quantity\": 1,\r\n  \"status\": \"Accepté\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/api/products/ID/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"ID",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "auth",
+								"value": "test",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/products/ID/delete/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"ID",
+								"delete",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by PARAMS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/products/filter/?params=",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"filter",
+								""
+							],
+							"query": [
+								{
+									"key": "params",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Get all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/categories/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/categories/ID/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								"ID",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "auth",
+								"value": "test",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Test\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/categories/create/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								"create",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update by ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/api/categories/ID/update",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								"ID",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "auth",
+								"value": "test",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "localhost:8000/api/categories/ID/delete/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categories",
+								"ID",
+								"delete",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
