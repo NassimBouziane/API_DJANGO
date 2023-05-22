@@ -19,7 +19,21 @@ python manage.py makemigrations
 python manage.py migrate 
 ```
 or just use the creation script
+### ON LINUX : 
+```bash
+psql -U postgres -c "CREATE DATABASE OMAJ_PRODUCTS;" && psql -U postgres -d OMAJ_PRODUCTS -f dump.sql
 
+```
+### ON WINDOWS:
+```bash
+psql -U postgres -c "CREATE DATABASE OMAJ_PRODUCTS;"
+
+```
+AND  
+```bash
+psql -U postgres -d omaj_products -f dump.sql
+```
+PS: THIS IS FOR POSTGRES DATABASES
 # REST API
 ### Products
 

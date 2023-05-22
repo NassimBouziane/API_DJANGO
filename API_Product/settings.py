@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'API_Product.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "OMAJ_PRODUCTS",
+        "NAME": "omaj_products",
         "USER": "postgres",
         "PASSWORD": "root",
         "HOST": "127.0.0.1",
