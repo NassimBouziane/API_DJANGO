@@ -16,11 +16,12 @@ class CategoryViewSet(viewsets.ModelViewSet):
 
 
 
-class AvailableProductListView(generics.ListAPIView):
+class FilterProductListView(generics.ListAPIView):
     http_method_names = ["get"]
     serializer_class = ProductSerializer
 
     def get_queryset(self):
+        queryset = Product.objects.all
         queryset = Product.objects.filter(quantity__gt=0)
 
         category = self.request.query_params.get('category', None)
@@ -28,6 +29,8 @@ class AvailableProductListView(generics.ListAPIView):
         size = self.request.query_params.get('size', None)
         quantity = self.request.query_params.get('quantity', None)
         status = self.request.query_params.get('status', None)
+        name = self.request.query_params.get('name', None)
+        price = self.request.query_params.get('price', None)
 
         if category:
             queryset = queryset.filter(category=category)
@@ -39,5 +42,10 @@ class AvailableProductListView(generics.ListAPIView):
             queryset = queryset.filter(quantity=quantity)
         if status:
             queryset = queryset.filter(status=status)
+        if name:
+            queryset = queryset.filter(name=name)
+        if price:
+            queryset = queryset.filter(price=price)
 
         return queryset
+

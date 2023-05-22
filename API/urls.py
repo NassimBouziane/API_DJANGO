@@ -3,6 +3,7 @@ from rest_framework import routers
 from .api_views.views import (
     ProductViewSet,
     CategoryViewSet,
+    FilterProductListView
 )
 from .api_views.views_create import (
     ProductCreateView,
@@ -28,6 +29,7 @@ urlpatterns = [
     path('categories/<int:pk>/update/', CategoryUpdateView.as_view(), name='category-update'),
     path('products/<int:pk>/delete/', ProductDeleteView.as_view(), name='product-delete'),
     path('categories/<int:pk>/delete/', CategoryDeleteView.as_view(), name='category-delete'),
+    path('products/filter/', FilterProductListView.as_view(), name='available-products'),
 
 
 ]
